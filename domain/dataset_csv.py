@@ -2,7 +2,7 @@ import pandas as pd
 from domain.dataset import Dataset
 
 
-class dataset_csv(Dataset):
+class DatasetCsv(Dataset):
     def __init__(self, csv_file):
         super().__init__(csv_file)
 

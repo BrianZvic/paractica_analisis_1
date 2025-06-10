@@ -55,7 +55,7 @@ class Dataset(ABC):
 
     def drop_duplicates(self):
         if self.validate_data():
-            self.get_dataset = self.get_dataset.drop_duplicates()
+            self.get_dataset.drop_duplicates(inplace=True)
             print("Dataset has been eliminated duplicated")
         else:
             print("Dataset has been NOT eliminated duplicated")
@@ -101,10 +101,7 @@ class Dataset(ABC):
             print("It was not possible to replace the NAN data, it occurred an error")
 
 
-    def convert_to_lowercase(self):
-        if self.validate_data():
-            self.get_dataset = self.get_dataset.str.lower()
-            self.get_dataset = self.get_dataset.applymap(lambda x: x.lower() if isinstance(x, str) else x)
+
 
     def see_NaNvalues(self):
         if self.validate_data():
